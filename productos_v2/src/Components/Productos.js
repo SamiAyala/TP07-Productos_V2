@@ -1,10 +1,10 @@
 import './Productos.css'
 import axios from 'axios'
-import { redirect } from 'react-router-dom';
-import DetalleProductos from './DetalleProductos'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Producto from './Producto';
 import { useEffect, useState } from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Productos = () => {
     const [skipMostrados,setSkipMostrados] = useState(0);
@@ -22,7 +22,9 @@ const Productos = () => {
 }, []);
 
 return (
-    listProducts.map(product => <Producto product = {product}></Producto>)
+    <Row className='mainBody'>
+    {listProducts.map(product => <Col sm={2}><Producto product = {product}></Producto></Col>)}
+    </Row>
 )
 }
 export default Productos;

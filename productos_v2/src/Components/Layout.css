@@ -1,3 +1,28 @@
-a{
-    margin-left: 20%;
+.anchorLayout {
+    margin-left: 2%;
+}
+
+p{
+    color: white;
+}
+
+a:link, a:visited {
+    color: white;
+    text-decoration: none;
+    background-color: rgb(4, 62, 185);
+    border-radius: 10px;
+    padding: 7px;
+}
+
+a:hover {
+    background-color: rgb(0, 81, 255);
+}
+
+.mainNavbar {
+    padding: 1%;
+    background-color: rgb(0, 46, 173) !important;
+    overflow: hidden;
+}
+.mainNavbar input{
+    float: right;
 }

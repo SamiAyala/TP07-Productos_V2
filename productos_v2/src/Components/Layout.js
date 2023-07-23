@@ -4,9 +4,11 @@ import { Link , Outlet} from 'react-router-dom';
 const Layout = () =>{
     return (
         <>
-        <nav>
-            <Link to='/productos'>productos</Link>
-            <Link to='/quienes-somos'>¿Quienes somos?</Link>
+        <nav className='mainNavbar'>
+            <Link to='/productos' className='anchorLayout'>productos</Link>
+            <Link to='/quienes-somos' className='anchorLayout'>¿Quienes somos?</Link>
+
+            <input type="text" placeholder="Search.."></input>
         </nav>
         <Outlet/>
         </>
