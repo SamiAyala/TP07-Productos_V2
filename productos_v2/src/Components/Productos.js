@@ -1,10 +1,13 @@
 import './Productos.css'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Producto from './Producto';
+import CardProducto from './CardProducto.js';
 import { useEffect, useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import DropdownCategorias from './DropdownCategorias';
+import SearchBar from './SearchBar';
 
 const Productos = () => {
     const [skipMostrados,setSkipMostrados] = useState(0);
@@ -22,9 +25,16 @@ const Productos = () => {
 }, []);
 
 return (
-    <Row className='mainBody'>
-    {listProducts.map(product => <Col sm={2}><Producto product = {product}></Producto></Col>)}
+    <div className='mainBody'>
+    <Row>
+        <Col><DropdownCategorias setListProducts={setListProducts}></DropdownCategorias></Col>
+        <Col sm={2}><SearchBar></SearchBar></Col>
+        </Row>
+    <Row >
+    {listProducts.map(product => <Col sm={2}><CardProducto product = {product}></CardProducto></Col>)}
+    <Button >Previous</Button><Button >Next</Button>
     </Row>
+    </div>
 )
 }
 export default Productos;

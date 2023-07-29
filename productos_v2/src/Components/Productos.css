@@ -1,7 +1,6 @@
 .mainBody{
-    background-color:navy;
+    padding: 1%;
 }
-
-#img-carousel{
-    border: 1px solid white;
+input{
+    float: right;
 }

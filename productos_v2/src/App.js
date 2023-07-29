@@ -5,6 +5,7 @@ import Home from './Components/Home';
 import Productos from './Components/Productos';
 import DetalleProductos from './Components/DetalleProductos';
 import Contacto from './Components/Contacto';
+import DetalleCategoria from './Components/detalleCategoria';
 
 const App = () => {
   return (
@@ -13,8 +14,9 @@ const App = () => {
       <Route path='/' element={<Layout />}>
         <Route index element={<Home />}></Route>
         <Route path='/productos' element={<Productos />}></Route>
-        <Route path='/detalle-productos/:productoId' element={<DetalleProductos />}></Route>
+        <Route path='/detalle-producto/:productoId' element={<DetalleProductos />}></Route>
         <Route path='/quienes-somos' element={<Contacto />}></Route>
+        <Route path='/detalle-categoria/:categoria' element={<DetalleCategoria/>}></Route>
       </Route>
     </Routes>
     </BrowserRouter>

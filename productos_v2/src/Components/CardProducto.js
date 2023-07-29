@@ -1,12 +1,8 @@
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import './Producto.css';
-//import { redirect } from 'react-router-dom'
+import './CardProducto.css';
 import { Link } from 'react-router-dom';
-const Producto = (props) => {
-   const handleClick = (id) => {
-    return 
-   }  
+const CardProducto = (props) => {
+
   return (
     <Card className='Card' style={{ width: '18rem' }}>
       <Card.Img variant="top" src={props.product.thumbnail} />
@@ -21,4 +17,4 @@ const Producto = (props) => {
     </Card>
     );
 }
-export default Producto;
+export default CardProducto;
