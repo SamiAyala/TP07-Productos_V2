@@ -9,7 +9,6 @@ const DropdownCategorias = (props) => {
   const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
-    console.log("dropdownCategorias")
     axios.get("https://dummyjson.com/products/categories").then((res) => {
       setCategorias(res.data);
     });

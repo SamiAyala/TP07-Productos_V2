@@ -5,6 +5,7 @@ import CardProducto from "./CardProducto.js";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
 import CarouselProducto from "./CarouselProducto";
+import LoadingSpinner from "./Spinner";
 
 const Home = () => {
   const [productos, setProductos] = useState([]);
@@ -23,11 +24,9 @@ const Home = () => {
     let number = Math.floor(Math.random() * (max - min + 1)) + min;
     return number;
   };
-  console.log("productos: ", productos);
-  console.log("productos[randomNumber]: ", productos[randomNumber()]);
 
   return loading ? (
-    <h2>loading</h2>
+    <LoadingSpinner/>
   ) : (
     <Row>
       <Row

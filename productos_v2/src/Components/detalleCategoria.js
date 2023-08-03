@@ -11,7 +11,6 @@ const DetalleCategoria = () => {
     const [productos,setProductos] = useState([]);
 
     useEffect(()=>{
-        console.log("detalleCategoria")
         axios.get('https://dummyjson.com/products/category/'+categoria)
     .then(res=>{
        setProductos(res.data.products);

@@ -7,7 +7,7 @@ const Layout = () =>{
         <nav className='mainNavbar'>
             <Link to='/' className='title'>Mercado Mercantil</Link>
             <Link to='/productos' className='anchorLayout'>productos</Link>
-            <Link to='/quienes-somos' className='anchorLayout'>¿Quienes somos?</Link>
+            <Link to='/quienes-somos' className='anchorLayout'>Contáctanos</Link>
         </nav>
         <Outlet/>
         </>

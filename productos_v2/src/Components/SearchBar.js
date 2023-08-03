@@ -18,7 +18,7 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (searchInput != "") {
+    if (searchInput !== "") {
       axios
         .get("https://dummyjson.com/products/search", {
           params: {
@@ -26,8 +26,10 @@ const SearchBar = () => {
           },
         })
         .then(function (response) {
-          setProductos(response.data.products);
-          navigate(`/detalle-producto/${response.data.products[0].id}`);
+          setProductos(response.data.products[0]);
+          if (response.data.products.length>0)
+            navigate(`/detalle-producto/${response.data.products[0].id}`);
+          else alert("No se han encontrado productos.")
         });
     } else {
       alert("Type something first");
@@ -35,20 +37,20 @@ const SearchBar = () => {
   };
 
   return (
-      <form onSubmit={handleSubmit}>
-        <Row style={{alignItems:'center'}}>
-          <Col>
-            <input
-              type="search"
-              placeholder="Type your query here..."
-              onChange={handleChange}
-            />
-          </Col>
-          <Col>
-            <Button type="submit">Search</Button>
-          </Col>
-        </Row>
-      </form>
+    <form onSubmit={handleSubmit}>
+      <Row style={{ alignItems: 'center' }}>
+        <Col>
+          <input
+            type="search"
+            placeholder="Type your query here..."
+            onChange={handleChange}
+          />
+        </Col>
+        <Col>
+          <Button type="submit">Search</Button>
+        </Col>
+      </Row>
+    </form>
   );
 };
 
