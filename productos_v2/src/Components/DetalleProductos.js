@@ -7,6 +7,8 @@ import Col from "react-bootstrap/Col";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/esm/Button";
 import LoadingSpinner from './Spinner';
+import { Rating } from 'primereact/rating';
+
 
 const DetalleProductos = () => {
   const [loading, setLoading] = useState(true);
@@ -27,19 +29,24 @@ const DetalleProductos = () => {
     <LoadingSpinner/>
   ) : (
     <div className="info-producto">
-      <Row style={{ display: 'flex', justifyContent: 'center', }}>
-        <Carousel >
+      <Row style={{ display: 'flex', justifyContent: 'left', }}>
+        <Col sm='6'>
+        <Carousel style={{maxWidth:'500px',maxHeight:'400px'}} >
           {producto.images.map(im =>
             <Carousel.Item className="slide">
-              <img style={{ height: '310px', width: '200px' }} className="d-block w-100" src={im} alt=""></img>
+              <img  className='img-responsive center-block' height={'400px'} width={'400px'} src={im} alt=""></img>
             </Carousel.Item>
           )}
-        </Carousel>
-      </Row>
+        </Carousel></Col>
+        <Col sm={'6'}>
+        <Row> <Col style={{ fontWeight: 'bold', fontSize: 'xx-large' }}>{producto.title}</Col><Col>de<b> {producto.brand}</b></Col></Row>
+        <Row style={{fontSize:'x-large',fontWeight:'bolder',marginTop:'5%'}}>{producto.price}$ {producto.discountPercentage}% OFF  <p style={{fontSize:'medium',fontWeight:'bold'}}>(solo en nuestra tienda)</p></Row>
+        <Row>{producto.description}</Row>
+        </Col>
+        </Row>
       <div>
-        <Row><Col sm={8}>categoria del producto: <b>{producto.category}</b></Col></Row>
-        <Row><Col style={{ fontWeight: 'bold', fontSize: 'large' }} sm={2}>{producto.title}</Col> <Col sm={2}>from <b> {producto.brand}</b></Col> <Col sm={4}></Col> <Col sm={4}>{producto.price}$ {producto.discountPercentage}% OFF  <b>(solo en nuestra tienda)</b></Col></Row>
-        <Row><Col sm={8}>{producto.description}</Col><Col sm={4}><b>Rating mundial:</b> {producto.rating}⭐</Col></Row>
+      <Row><p>categoria del producto: <b>{producto.category}</b></p></Row>
+      <Rating style={{display: 'flex'}} cancel={false} value={producto.rating} stars={5}/>
         <Row><Col style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'fixed', bottom: '20%' }} sm={8}><Button variant="primary">Comprar</Button>Quedan:<b>{producto.stock}</b></Col></Row>
       </div>
     </div>

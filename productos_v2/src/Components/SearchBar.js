@@ -32,7 +32,7 @@ const SearchBar = () => {
           else alert("No se han encontrado productos.")
         });
     } else {
-      alert("Type something first");
+      alert("Escriba algo primero");
     }
   };
 
@@ -42,12 +42,12 @@ const SearchBar = () => {
         <Col>
           <input
             type="search"
-            placeholder="Type your query here..."
+            placeholder="Ej: Iphone..."
             onChange={handleChange}
           />
         </Col>
         <Col>
-          <Button type="submit">Search</Button>
+          <Button type="submit">Buscar</Button>
         </Col>
       </Row>
     </form>

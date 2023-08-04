@@ -8,8 +8,10 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import DropdownCategorias from './DropdownCategorias';
 import SearchBar from './SearchBar';
+import LoadingSpinner from './Spinner';
 
 const Productos = () => {
+    const [loading, setLoading] = useState(true);
     const [skipMostrados, setSkipMostrados] = useState(0);
     const [listProducts, setListProducts] = useState([]);
 
@@ -21,21 +23,24 @@ const Productos = () => {
         })
             .then(res => {
                 setListProducts(res.data.products);
+                setLoading(false);
             });
     }, [skipMostrados]);
 
     const paginationAuto = (n) => {
 
         if ((skipMostrados + n) >= 0 && (skipMostrados + n) <= 90) {
+            setLoading(true);
             setSkipMostrados(skipMostrados + n);
         } else { alert('Error: La pagina no existe o no ha sido encontrada') }
     }
 
     const paginationManual = (n) => {
+        setLoading(true);
         setSkipMostrados(n);
     }
 
-    return (
+    return loading ? <LoadingSpinner/> : (
         <div className='mainBody'>
             <Row>
                 <Col><DropdownCategorias setListProducts={setListProducts}></DropdownCategorias></Col>

@@ -25,6 +25,8 @@ a:hover {
     padding: 1%;
     background-color: rgb(0, 46, 173) !important;
     overflow: hidden;
+    flex-direction: row;
+    justify-content:space-evenly;
     
 }
 

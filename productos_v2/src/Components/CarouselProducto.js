@@ -8,7 +8,7 @@ const CarouselProducto = (props) => {
     navigate(`/detalle-producto/${props.product.id}`)
   }
     return (
-        <Carousel>
+        <Carousel >
           {props.product.images.map((im) => (
             <Carousel.Item className="slide">
               <img
