@@ -26,28 +26,29 @@ const DetalleProductos = () => {
   }, []);
 
   return loading ? (
-    <LoadingSpinner/>
+    <LoadingSpinner />
   ) : (
     <div className="info-producto">
       <Row style={{ display: 'flex', justifyContent: 'left', }}>
-        <Col sm='6'>
-        <Carousel style={{maxWidth:'500px',maxHeight:'400px'}} >
-          {producto.images.map(im =>
-            <Carousel.Item className="slide">
-              <img  className='img-responsive center-block' height={'400px'} width={'400px'} src={im} alt=""></img>
-            </Carousel.Item>
-          )}
-        </Carousel></Col>
+        <Col sm='auto'>
+          <Carousel pauseOnHover={true}>  
+            {producto.images.map(im =>
+              <Carousel.Item className="slide">
+                <img className='img-responsive center-block' height={'400px'} width={'auto'} src={im} alt=""></img>
+              </Carousel.Item>
+            )}
+          </Carousel></Col>
         <Col sm={'6'}>
-        <Row> <Col style={{ fontWeight: 'bold', fontSize: 'xx-large' }}>{producto.title}</Col><Col>de<b> {producto.brand}</b></Col></Row>
-        <Row style={{fontSize:'x-large',fontWeight:'bolder',marginTop:'5%'}}>{producto.price}$ {producto.discountPercentage}% OFF  <p style={{fontSize:'medium',fontWeight:'bold'}}>(solo en nuestra tienda)</p></Row>
-        <Row>{producto.description}</Row>
+          <Row> <Col style={{ fontWeight: 'bold', fontSize: 'xx-large' }}>{producto.title}</Col><Col>de<b> {producto.brand}</b></Col></Row>
+          <Rating style={{ display: 'flex' }} cancel={false} value={producto.rating} stars={5} />
+          <Row style={{ fontSize: 'x-large', fontWeight: 'bolder', marginTop: '5%' }}>{producto.price}$ {producto.discountPercentage}% OFF  <p style={{ fontSize: 'medium', fontWeight: 'bold' }}>(solo en nuestra tienda)</p></Row>
+          <Row>{producto.description}</Row>
         </Col>
-        </Row>
+      </Row>
       <div>
-      <Row><p>categoria del producto: <b>{producto.category}</b></p></Row>
-      <Rating style={{display: 'flex'}} cancel={false} value={producto.rating} stars={5}/>
-        <Row><Col style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'fixed', bottom: '20%' }} sm={8}><Button variant="primary">Comprar</Button>Quedan:<b>{producto.stock}</b></Col></Row>
+        <Row><p>categoria del producto: <b>{producto.category}</b></p></Row>
+        <Row><Col style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'fixed', bottom: '20%' }} sm={8}><Button variant="primary">Comprar</Button></Col></Row>
+        <Row><Col style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'fixed', bottom: '18%' }} sm={8}>Quedan: <b> {producto.stock}</b></Col></Row>
       </div>
     </div>
   );

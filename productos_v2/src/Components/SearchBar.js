@@ -7,7 +7,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const SearchBar = () => {
-  const [productos, setProductos] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const navigate = useNavigate();
 
@@ -26,7 +25,6 @@ const SearchBar = () => {
           },
         })
         .then(function (response) {
-          setProductos(response.data.products[0]);
           if (response.data.products.length>0)
             navigate(`/detalle-producto/${response.data.products[0].id}`);
           else alert("No se han encontrado productos.")
