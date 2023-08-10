@@ -21,9 +21,12 @@ const DetalleCategoria = () => {
     return loading ? (
         <h2>loading</h2>
       ) : (
+        <>
+        <Row ><Col style={{display:'flex',flexWrap:'wrap',justifyContent:'center',fontSize:'xx-large',fontWeight:'bold',padding:'0px'}}>{categoria}</Col></Row>
         <Row>
-        {productos.map(product => <Col sm={3}><CardProducto product = {product}></CardProducto></Col>)}
+        {productos.map(product => <Col sm={2}><CardProducto product = {product}></CardProducto></Col>)}
         </Row>
+        </>
     )
 }
 

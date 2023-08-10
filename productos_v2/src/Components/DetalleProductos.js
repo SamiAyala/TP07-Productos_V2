@@ -8,6 +8,7 @@ import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/esm/Button";
 import LoadingSpinner from './Spinner';
 import { Rating } from 'primereact/rating';
+import { Link } from "react-router-dom";
 
 
 const DetalleProductos = () => {
@@ -38,7 +39,7 @@ const DetalleProductos = () => {
               </Carousel.Item>
             )}
           </Carousel></Col>
-        <Col sm={'6'}>
+        <Col sm={'4'}>
           <Row> <Col style={{ fontWeight: 'bold', fontSize: 'xx-large' }}>{producto.title}</Col><Col>de<b> {producto.brand}</b></Col></Row>
           <Rating style={{ display: 'flex' }} cancel={false} value={producto.rating} stars={5} />
           <Row style={{ fontSize: 'x-large', fontWeight: 'bolder', marginTop: '5%' }}>{producto.price}$ {producto.discountPercentage}% OFF  <p style={{ fontSize: 'medium', fontWeight: 'bold' }}>(solo en nuestra tienda)</p></Row>
@@ -46,7 +47,7 @@ const DetalleProductos = () => {
         </Col>
       </Row>
       <div>
-        <Row><p>categoria del producto: <b>{producto.category}</b></p></Row>
+        <Row style={{marginTop:'5px'}}><p>categoria del producto: <Link to={`/detalle-categoria/${producto.category}`} className='item'><b>{producto.category}</b></Link></p></Row>
         <Row><Col style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'fixed', bottom: '20%' }} sm={8}><Button variant="primary">Comprar</Button></Col></Row>
         <Row><Col style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'fixed', bottom: '18%' }} sm={8}>Quedan: <b> {producto.stock}</b></Col></Row>
       </div>

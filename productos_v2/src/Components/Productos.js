@@ -49,10 +49,6 @@ const Productos = () => {
             <Row >
                 {listProducts.map(product => <Col sm={2}><CardProducto product={product}></CardProducto></Col>)}
             </Row>
-            {/*<Row className="justify-content-md-center" style={{marginTop:'1%'}}>
-                <Col lg="auto">{skipMostrados - 10 >= 0 ? <Button onClick={() => handleClick(-10)} >Previous</Button> : <Button disabled={true} >Previous</Button>} {skipMostrados + 10 < 100 ? <Button onClick={() => handleClick(10)} >Next</Button> : <Button disabled={true} >Next</Button>}
-                </Col>
-    </Row>*/}
             <Row className="justify-content-md-center" style={{ marginTop: '1%' }}>
                 <Col lg="auto">
                     <div class="pagination">
