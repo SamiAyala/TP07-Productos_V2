@@ -29,7 +29,7 @@ const Home = () => {
     <LoadingSpinner/>
   ) : (
     <Row>
-      <Row><Col style={{display:'flex',flexWrap:'wrap',justifyContent:'center',fontSize:'xx-large',fontWeight:'bold',padding:'0px',alignItems:'center'}}>Bienvenido al <p className="rainbow-text">¡Mercado Mercantil!</p><p style={{fontSize:'10px'}}>(hover me)</p></Col></Row>
+      <Row><Col style={{display:'flex',flexWrap:'wrap',justifyContent:'center',fontSize:'xx-large',fontWeight:'bold',padding:'0px',alignItems:'center'}}><p>Bienvenido al </p><p className="rainbow-text">¡Mercado Mercantil!</p><p style={{fontSize:'10px'}}>(hover me)</p></Col></Row>
       <Row
         style={{ display: "flex", justifyContent: "center", marginTop: "2%" }}
       >
